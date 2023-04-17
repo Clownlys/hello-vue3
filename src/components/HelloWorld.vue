@@ -47,15 +47,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useMessageStore } from '@/stores'
+import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useMessageStore } from '@/stores';
 
-defineProps<{ msg: string }>()
+defineProps<{ msg: string }>();
 
-const count = ref<number>(0)
-const store = useMessageStore()
-const { message } = storeToRefs(store)
+const count = ref<number>(0);
+const store = useMessageStore();
+const { message } = storeToRefs(store);
 </script>
 
 <style lang="less" scoped>

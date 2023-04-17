@@ -21,35 +21,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { isDark as isDarkMode } from '@bassist/utils'
-import { useStorage } from '@/hooks'
-import type { PrefersColorScheme } from '@bassist/utils'
+import { ref } from 'vue';
+import { isDark as isDarkMode } from '@bassist/utils';
+import { useStorage } from '@/hooks';
+import type { PrefersColorScheme } from '@bassist/utils';
 
-const { storage } = useStorage()
-const STORAGE_KEY = 'theme-appearance'
-const isDark = ref<boolean>(isDarkMode())
+const { storage } = useStorage();
+const STORAGE_KEY = 'theme-appearance';
+const isDark = ref<boolean>(isDarkMode());
 
 function getLocalTheme() {
-  return storage.get(STORAGE_KEY)
+  return storage.get(STORAGE_KEY);
 }
 const defaultThemeIsDark = getLocalTheme()
   ? getLocalTheme() === 'dark'
-  : isDarkMode()
+  : isDarkMode();
 
 function updateTheme(isDarkTheme: boolean) {
-  const newTheme: PrefersColorScheme = isDarkTheme ? 'dark' : 'light'
-  storage.set(STORAGE_KEY, newTheme)
-  isDark.value = newTheme === 'dark'
+  const newTheme: PrefersColorScheme = isDarkTheme ? 'dark' : 'light';
+  storage.set(STORAGE_KEY, newTheme);
+  isDark.value = newTheme === 'dark';
 
-  const root = document.querySelector('html')
-  root!.className = newTheme
+  const root = document.querySelector('html');
+  root!.className = newTheme;
 }
-updateTheme(defaultThemeIsDark)
+updateTheme(defaultThemeIsDark);
 
 function toggleTheme() {
-  const isCurrentThemeDark = getLocalTheme() === 'dark'
-  updateTheme(!isCurrentThemeDark)
+  const isCurrentThemeDark = getLocalTheme() === 'dark';
+  updateTheme(!isCurrentThemeDark);
 }
 </script>
 

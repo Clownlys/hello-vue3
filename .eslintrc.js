@@ -1,11 +1,11 @@
 module.exports = {
-  root: true,
+  root: true, // 使配置文件不再向上查找, 在当前目录根目录下查找
   env: {
     node: true,
     browser: true,
   },
   extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'prettier'],
-  parser: 'vue-eslint-parser',
+  parser: 'vue-eslint-parser', // 解析器,支持vue单文件解析
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
@@ -24,4 +24,4 @@ module.exports = {
     defineExpose: 'readonly',
     withDefaults: 'readonly',
   },
-}
+};

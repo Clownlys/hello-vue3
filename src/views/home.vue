@@ -5,9 +5,8 @@
     <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   </div>
 </template>
-
 <script setup lang="ts">
-import logo from '@/assets/img/logo.png'
+import logo from '@/assets/img/logo.png';
 </script>
 
 <style lang="less" scoped>

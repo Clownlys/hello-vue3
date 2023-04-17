@@ -7,7 +7,14 @@
 </template>
 
 <script setup lang="ts">
-import logo from '@/assets/img/logo.png'
+import logo from '@/assets/img/logo.png';
+
+import ToggleTheme from '@/components/ToggleTheme.vue';
+
+import HelloWorld from '@/components/HelloWorld.vue';
+
+console.log(ToggleTheme, HelloWorld);
+console.log(logo);
 </script>
 
 <style lang="less" scoped>
@@ -20,6 +27,7 @@ import logo from '@/assets/img/logo.png'
   margin-top: calc(var(--w-space) * 3);
   a {
     color: #42b983;
+    background-color: #42b983;
   }
 }
 </style>

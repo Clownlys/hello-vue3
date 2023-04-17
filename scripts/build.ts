@@ -1,33 +1,33 @@
-import { resolve } from 'path'
-import { cwd } from 'process'
-import pkg from '../package.json'
+import { resolve } from 'path';
+import { cwd } from 'process';
+import pkg from '../package.json';
 
 function getManualChunks() {
-  const manualChunks = {}
+  const manualChunks = {};
   for (const key in pkg.dependencies) {
     if (Object.prototype.hasOwnProperty.call(pkg.dependencies, key)) {
-      manualChunks[key] = [key]
+      manualChunks[key] = [key];
     }
   }
-  return manualChunks
+  return manualChunks;
 }
 
-export const manualChunks = getManualChunks()
+export const manualChunks = getManualChunks();
 
 export function getRootPath() {
-  return resolve(cwd())
+  return resolve(cwd());
 }
 
 export function getEnvDir() {
-  const rootPath = getRootPath()
-  return resolve(rootPath, 'config')
+  const rootPath = getRootPath();
+  return resolve(rootPath, 'config');
 }
 
-export const envDir = getEnvDir()
+export const envDir = getEnvDir();
 
 export function getSourceDir(sourceDirectory = 'src') {
-  const rootPath = getRootPath()
-  return resolve(rootPath, sourceDirectory)
+  const rootPath = getRootPath();
+  return resolve(rootPath, sourceDirectory);
 }
 
-export const sourceDir = getSourceDir()
+export const sourceDir = getSourceDir();

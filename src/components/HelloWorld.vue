@@ -43,17 +43,59 @@
       Edit
       <code>components/HelloWorld.vue</code> to test hot module replacement.
     </li>
+    <li>
+      <code>userInfo.name</code> is {{ userInfo.name }}
+      <button @click="userInfo.name = 'Julia'">修改名字</button>
+    </li>
+    <li>
+      <code>name</code> is {{ name }}
+      <button @click="name = 'Susan'">修改名字</button>
+    </li>
+    <li>
+      <code>userInfoRefs.name</code> is {{ nameRef }}
+      <button @click="nameRef = 'haiminwei'">修改名字</button>
+    </li>
+    <li>
+      <code>refA</code> is {{ refA }}
+      <button @click="refA = 'l'">修改</button>
+      <br />
+      <code>refB</code> is {{ refB }}
+      <button @click="refB = 'h'">修改</button>
+      <br />
+      <code>refC</code> is {{ refC }}
+      <button @click="refC = 'y'">修改</button>
+      <br />
+
+      <code>words</code> is {{ words }}
+    </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, reactive, toRef, toRefs } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useMessageStore } from '@/stores';
 
+interface User {
+  name: string;
+  age: number;
+}
 defineProps<{ msg: string }>();
 
 const count = ref<number>(0);
+const userInfo: User = reactive({
+  name: 'Jack',
+  age: 18,
+});
+const name = toRef(userInfo, 'name');
+
+const userInfoRefs = toRefs(userInfo);
+const { name: nameRef } = userInfoRefs;
+
+const words = reactive(['a', 'b', 'c']);
+const wordsRefs = toRefs(words);
+const [refA, refB, refC] = wordsRefs;
+
 const store = useMessageStore();
 const { message } = storeToRefs(store);
 </script>

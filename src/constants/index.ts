@@ -21,3 +21,6 @@ export const APP_KEYWORDS = import.meta.env.VITE_APP_KEYWORDS;
 
 // 本地存储前缀
 export const STORAGE_PREFIX = import.meta.env.VITE_STORAGE_PREFIX;
+
+// 用户信息本地存储键名
+export const STORAGE_USER_KEY = `${STORAGE_PREFIX}user`;

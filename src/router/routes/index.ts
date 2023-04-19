@@ -1,4 +1,4 @@
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router';
 
 /**
  * 路由配置
@@ -40,6 +40,6 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
-]
+];
 
-export default routes
+export default routes;

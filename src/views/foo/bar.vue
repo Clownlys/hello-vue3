@@ -3,6 +3,7 @@
     <img alt="Vue logo" :src="logo" />
     <p>This is a children router.</p>
     <router-link to="/">Go Back</router-link>
+    <button @click="backToHome">返回首页</button>
   </div>
 </template>
 
@@ -12,6 +13,19 @@ import logo from '@/assets/img/logo.png';
 import ToggleTheme from '@/components/ToggleTheme.vue';
 
 import HelloWorld from '@/components/HelloWorld.vue';
+
+import { useRoute, useRouter } from 'vue-router';
+const route = useRoute();
+const router = useRouter();
+console.log(route.name);
+console.log(route.path);
+const parent = route.matched[route.matched.length - 2];
+console.log('parentRoute', parent);
+const backToHome = () => {
+  router.push({
+    name: 'home',
+  });
+};
 
 console.log(ToggleTheme, HelloWorld);
 console.log(logo);
